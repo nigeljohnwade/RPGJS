@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'IM Fell Double Pica';
+  font-style: italic;
+  font-weight: normal;
+  src: local('IM FELL Double Pica Italic'), local('IM_FELL_Double_Pica_Italic'), url('http://themes.googleusercontent.com/font?kit=64odUh2hAw8D9dkFKTlWYrsB83gySBZ17TQKV_fUlC2glnMp3_3A8V8Ai8YosRtX') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell Double Pica';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IM FELL Double Pica Roman '), local('IM_FELL_Double_Pica_Roman'), url('http://themes.googleusercontent.com/font?kit=yN1wY_01BkQnO0LYAhXdUkFORScBcOOaX3MDipKsCEY') format('woff');
+}
+@font-face {
+  font-family: 'Tangerine';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Tangerine'), url('http://themes.googleusercontent.com/static/fonts/tangerine/v1/HGfsyCL5WASpHOFnouG-RLO3LdcAZYWl9Si6vvxL-qU.woff') format('woff');
+}
+@font-face {
+  font-family: 'Astloch Bold';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Astloch Bold'), local('Astloch-Bold'), url('http://themes.googleusercontent.com/static/fonts/astloch/v1/IjDNVaR3WOrQMh9cLq1mUr3hpw3pgy2gAi-Ip7WPMi0.woff') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell English';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IM FELL English Roman'), local('IM_FELL_English_Roman'), url('http://themes.googleusercontent.com/font?kit=xwIisCqGFi8pff-oa9uSVCLHKJuu6uDU1VgRUl2Dqww') format('woff');
+}
+@font-face {
+  font-family: 'Tangerine';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Tangerine Bold'), local('Tangerine-Bold'), url('http://themes.googleusercontent.com/static/fonts/tangerine/v1/UkFsr-RwJB_d2l9fIWsx3qRDOzjiPcYnFooOUGCOsRk.woff') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell English SC';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IM FELL English SC'), local('IM_FELL_English_SC'), url('http://themes.googleusercontent.com/font?kit=h3Tn6yWfw4b5qaLD1RWvz1NITcQXGZNmPdSry0X2sgA') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell Great Primer SC';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IM FELL Great Primer SC'), local('IM_FELL_Great_Primer_SC'), url('http://themes.googleusercontent.com/font?kit=A313vRj97hMMGFjt6rgSJjgC0zj6Jezsfyod0ywgyR8C1LhKU8qFLLahJuQDJSaO') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell Great Primer';
+  font-style: italic;
+  font-weight: normal;
+  src: local('IM FELL Great Primer Italic'), local('IM_FELL_Great_Primer_Italic'), url('http://themes.googleusercontent.com/font?kit=1a-artkXMVg682r7TTxVY16UsWCe7_sP3unRdPj5EEvr7w4p9aSvGirXi6XmeXNA') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell French Canon SC';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IM FELL French Canon SC'), local('IM_FELL_French_Canon_SC'), url('http://themes.googleusercontent.com/font?kit=kA3bS19-tQbeT_iG32EZmW-oyEwFnPiSQ_SPyKozNNsC1LhKU8qFLLahJuQDJSaO') format('woff');
+}
+@font-face {
+  font-family: 'UnifrakturMaguntia';
+  font-style: normal;
+  font-weight: normal;
+  src: local('UnifrakturMaguntia'), url('http://themes.googleusercontent.com/font?kit=7KWy3ymCVR_xfAvvcIXm3y22dP_n8Qan8bB-jRkZJJ4') format('woff');
+}
+@font-face {
+  font-family: 'Astloch';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Astloch'), url('http://themes.googleusercontent.com/static/fonts/astloch/v1/XL12f_y8ddtOA93M35k3UQLUuEpTyoUstqEm5AMlJo4.woff') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell DW Pica SC';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IM FELL DW Pica SC'), local('IM_FELL_DW_Pica_SC'), url('http://themes.googleusercontent.com/font?kit=xBKKJV4z2KsrtQnmjGO17N53Gl4ViFi9Z2HSjeIl6bI') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell Great Primer';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IM FELL Great Primer Roman'), local('IM_FELL_Great_Primer_Roman'), url('http://themes.googleusercontent.com/font?kit=AL8ALGNthei20f9Cu3e93rsF2DnBJrn5eQIoP3pX12z3rGVtsTkPsbDajuO5ueQw') format('woff');
+}
+@font-face {
+  font-family: 'IM Fell English';
+  font-style: italic;
+  font-weight: normal;
+  src: local('IM FELL English Italic'), local('IM_FELL_English_Italic'), url('http://themes.googleusercontent.com/font?kit=Z3cnIAI_L3XTRfz4JuZKbp3BpQU8opE6p3S8I9UDCT8') format('woff');
+}
