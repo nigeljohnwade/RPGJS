@@ -1,53 +1,53 @@
 <html>
 <head>
-	<meta name="viewport" content="width=device-width; initial-scale=1.0;maximum-scale=1.0;user-scalable=0" />
-	<script src="playerCharacter.js" type="text/javascript"></script>
-	<script src="nonPlayerCharacter.js" type="text/javascript"></script>
-	<script src="Combat.js" type="text/javascript"></script>
-	<script src="rpgConsole.js" type="text/javascript"></script>
-	<script src="Weapons.js" type="text/javascript"></script>
-	<script src="Armor.js" type="text/javascript"></script>
-	<script src="Inventory.js" type="text/javascript"></script>
-	<script src="geo.js" type="text/javascript"></script>
-	<script src="timer.js" type="text/javascript"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyBZQpgAHulnxeyfxyvVzetQlOr1dWvQerE"></script>
-	<link href="css/fonts.css" rel='stylesheet' type="text/css" />
-	<link href="css/interface.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;maximum-scale=1.0;user-scalable=0" />
+    <script src="playerCharacter.js" type="text/javascript"></script>
+    <script src="nonPlayerCharacter.js" type="text/javascript"></script>
+    <script src="Combat.js" type="text/javascript"></script>
+    <script src="rpgConsole.js" type="text/javascript"></script>
+    <script src="Weapons.js" type="text/javascript"></script>
+    <script src="Armor.js" type="text/javascript"></script>
+    <script src="Inventory.js" type="text/javascript"></script>
+    <script src="geo.js" type="text/javascript"></script>
+    <script src="timer.js" type="text/javascript"></script>
+    <!--script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key=AIzaSyBZQpgAHulnxeyfxyvVzetQlOr1dWvQerE"></script-->
+    <link href="css/fonts.css" rel='stylesheet' type="text/css" />
+    <link href="css/interface.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="wrapper">
-	<div id="cardHolder">
-		<div>
-			<div id="player" class="card"></div>
-			<button id="basicMeleeAttack_frodo" onclick="playerAttack()">
-				Attack
-			</button>
-			<button id="showInventory_frodo" onclick="playerInventory()">
-				Inventory
-			</button>
-		</div>
-		<div>
-			<div id="opponent" class="card"></div>
-			<button id="basicMeleeAttack_badGuy" onclick="enemyAttack()">
-				Attack
-			</button>
-		</div>
-	</div>
-	<div id="log"></div>
+    <div id="cardHolder">
+        <div>
+            <div id="player" class="card"></div>
+            <button id="basicMeleeAttack_frodo" onclick="playerAttack()">
+                Attack
+            </button>
+            <button id="showInventory_frodo" onclick="playerInventory()">
+                Inventory
+            </button>
+        </div>
+        <div>
+            <div id="opponent" class="card"></div>
+            <button id="basicMeleeAttack_badGuy" onclick="enemyAttack()">
+                Attack
+            </button>
+        </div>
+    </div>
+    <div id="log"></div>
 </div>
 <script type="text/javascript">
 function backToMap(){
-	window.location = 'index.html';
+    window.location = 'index.html';
 }
 //set up objects
 var frodo = new playerCharacter(3,3,3,3, 'Frodude');
 frodo.inventory.addItem(7, 'Weapons');
 var badGuy = new nonPlayerCharacter(
-	parseInt((Math.random()*3)+1),
-	parseInt((Math.random()*3)+1),
-	parseInt((Math.random()*3)+1),
-	parseInt((Math.random()*3)+1),
-	'Random Bad Dude');
+    parseInt((Math.random()*3)+1),
+    parseInt((Math.random()*3)+1),
+    parseInt((Math.random()*3)+1),
+    parseInt((Math.random()*3)+1),
+    'Random Bad Dude');
 var output = new rpgConsole('log');
 var turnTimer = new timer(60000,1000,"alert('Timed Out!')");
 turnTimer.startTimer();
@@ -63,54 +63,54 @@ output.display();
 frodo.showCard('player');
 badGuy.showCard('opponent');
 var playerAttack = function (){
-	if(frodo.status !== 'dead' && badGuy.status !== 'dead'){
-		var attack = frodo.getAttackType();
-		switch (attack){
-			case "melee":
-				var stabs = Combat.basicMeleeAttack(frodo);
-				break;
-			case "ranged":
-				var stabs = Combat.basicRangedAttack(frodo);
-				break;
-			}
-		output.log('frodo', stabs.message);
-		output.log('timer',turnTimer.getTimeString())
-		output.display();
-		if(stabs.damage > 0){
-			var wounds = Combat.receiveDamage(badGuy,stabs.damage);
-			output.log('badGuy', wounds.message);
-			output.log('badGuy', badGuy.updateStatus());
-			output.display();
-			frodo.showCard('player');
-			badGuy.showCard('opponent');
-			}
-		}else if(frodo.status === 'dead'){
-		output.log('info', 'Dead men tell no tales! You must be alive to attack...');
-		output.display();
-		}else if(badGuy.status === 'dead'){
-		output.log('info', 'Flogging a dead horse? Your opponent must be alive to attack...');
-		output.display();
-		}
-	}
+    if(frodo.status !== 'dead' && badGuy.status !== 'dead'){
+        var attack = frodo.getAttackType();
+        switch (attack){
+            case "melee":
+                var stabs = Combat.basicMeleeAttack(frodo);
+                break;
+            case "ranged":
+                var stabs = Combat.basicRangedAttack(frodo);
+                break;
+            }
+        output.log('frodo', stabs.message);
+        output.log('timer',turnTimer.getTimeString())
+        output.display();
+        if(stabs.damage > 0){
+            var wounds = Combat.receiveDamage(badGuy,stabs.damage);
+            output.log('badGuy', wounds.message);
+            output.log('badGuy', badGuy.updateStatus());
+            output.display();
+            frodo.showCard('player');
+            badGuy.showCard('opponent');
+            }
+        }else if(frodo.status === 'dead'){
+        output.log('info', 'Dead men tell no tales! You must be alive to attack...');
+        output.display();
+        }else if(badGuy.status === 'dead'){
+        output.log('info', 'Flogging a dead horse? Your opponent must be alive to attack...');
+        output.display();
+        }
+    }
 
 var enemyAttack = function(){
-	if(badGuy.status !== 'dead'){
-		var stabs = Combat.basicMeleeAttack(badGuy);
-		output.log('badGuy', stabs.message);
-		output.display();
-		if(stabs.damage > 0){
-			var wounds = Combat.receiveDamage(frodo,stabs.damage);
-			output.log('frodo', wounds.message);
-			output.log('frodo', frodo.updateStatus());
-			output.display();
-			frodo.showCard('player');
-			badGuy.showCard('opponent');
-			}
-		}else{
-		output.log('info', 'Dead men tell no tales! You must be alive to attack...');
-		output.display();
-		}
-	}
+    if(badGuy.status !== 'dead'){
+        var stabs = Combat.basicMeleeAttack(badGuy);
+        output.log('badGuy', stabs.message);
+        output.display();
+        if(stabs.damage > 0){
+            var wounds = Combat.receiveDamage(frodo,stabs.damage);
+            output.log('frodo', wounds.message);
+            output.log('frodo', frodo.updateStatus());
+            output.display();
+            frodo.showCard('player');
+            badGuy.showCard('opponent');
+            }
+        }else{
+        output.log('info', 'Dead men tell no tales! You must be alive to attack...');
+        output.display();
+        }
+    }
 
 </script>
 </body>
