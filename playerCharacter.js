@@ -14,8 +14,8 @@ function playerCharacter(m,r,s,t,n){
     this.attackChance = 50;
     this.damage = 1;
     this.defence = 1;
-    this.weaponID = 0;
-    this.armorID = 0;
+    this.weaponID = null;
+    this.armorID = null;
     //items
     this.inventory = new Inventory();
     //demographics
@@ -59,11 +59,13 @@ playerCharacter.prototype.getHealth = function(){
     }
 
 playerCharacter.prototype.amendStat = function(stat,value){
+    //Amend a the specified stat by thegiven value
     this.stats[stat]  = this.stats[stat] + value;
     this.updateStatus();
     }
 
 playerCharacter.prototype.setStat = function(stat,value){
+    //Set a given stat to a specified value
     this.stats[stat]  = value;
     }
     
