@@ -3,10 +3,11 @@ var Combat = {
     basicMeleeAttack: function(instigator){
         //TODO test for correct object
         if(Weapons.weapons[instigator.weaponID].weaponStyle === "melee"){
-            var im = instigator.getMelee(), hits = 0;
+            var im = instigator.getMelee(), hits = [], roll;
             for(var i = 0 ; i < im ; i++){
-                if(Math.random() * 100 > instigator.attackChance){
-                    hits++;
+                roll = Math.random();
+                if((value = roll * 100 - instigator.attackChance) > 0){
+                    hits.push(value);
                     }
                 }
             var damage = this.inflictDamage(hits, instigator.getDamage()).damage;
@@ -16,7 +17,7 @@ var Combat = {
                 }
             }else{
                 return{'message': instigator.name + ' is not using a melee weapon'}
-                }
+            }
         }
     ,basicRangedAttack: function(instigator){
         if(Weapons.weapons[instigator.weaponID].weaponStyle === "ranged"){
@@ -36,11 +37,14 @@ var Combat = {
                 }
         }
     ,inflictDamage: function(hits, damage){
-        var damageInflicted = parseInt(hits*damage);
-        return {
-            'damage': damageInflicted,
-            'message': hits + ' hits for ' + damageInflicted + ' damage'
+        var i, hl = hits.length, _damageInflicted = 0;
+        for( i = 0 ; i < hl ; i++){
+            _damageInflicted += parseInt((hits[i]*damage)/100);
             }
+        return {
+                'damage': _damageInflicted,
+                'message': hits + ' hits for ' + _damageInflicted + ' damage'
+                }
         }
     ,receiveDamage: function(retaliator,damage){
         damage = damage - retaliator.getResilience();

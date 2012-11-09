@@ -41,7 +41,10 @@ function backToMap(){
 }
 //set up objects
 var frodo = new playerCharacter(3,3,3,3, 'Frodude');
-frodo.inventory.addItem(7, 'Weapons');
+frodo.inventory.addItem(4, 'Weapons');
+frodo.inventory.addItem(3, 'Armors');
+frodo.setWeapon(4);
+frodo.setArmor(3);
 var badGuy = new nonPlayerCharacter(
     parseInt((Math.random()*3)+1),
     parseInt((Math.random()*3)+1),
