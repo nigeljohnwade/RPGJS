@@ -8,11 +8,22 @@
         <article>
             <h1>Combat Object</h1>
             <p>
-                The combat object is used to perform (unsurprisingly) combat actions between characters and &lsquo;monsters&rsquo;.
-                The combat system is abstracted into attack functions, for each attack type, which create a number of hits,
-                an inflict damage function which calculates how much damage is inflicted by the instigator and a recieve
-                damage function which calculates how much of that the retaliator recieves.
+                The combat object is used to perform (unsurprisingly) combat actions between characters and non-player-characters and &lsquo;monsters&rsquo;.
+                The combat system consists of attack functions, one for each attack type, each of which create a number of hits.
+                An inflict damage function calculates how much damage is inflicted by the instigator.
+                A recieve damage function calculates how much of that the retaliator recieves.
             </p>
+            <p>
+                Each of the attack functions generates a base 50/50 chance of creating a hit, one chance per attack statistic.
+                E.g. a melee attack with a melee attribute of 4 generates 4 &times; 50/50 chances of hitting.
+                Each of these 50/50 chances is further modified by other factors including status effects, weapon bonuses etc.
+                Each successful attack is passed to the damage calculation function (?without regard to how much the chance was made by?)
+                which uses the number of hits and any damage modifiers from status effects, weapon bonuses etc. to calculate teh damage inflicted.
+                This damage inflicted and the number of hits are passed to the receive damage function where it is determined how much
+                of this damage is received by the retaliator based upon thier toughness and any other modifiers such as status effects
+                and armour modifiers.
+            </p>
+            <p>As a rough guide evenly matched attack and toghness statistics pitted against each other should be eveny matched.</p>
         </article>
     </section>
 </body>

@@ -5,9 +5,9 @@
 </head>
 <body>
     <section>
+        <h1>Code Standards - Javascript</h1>
+        <p>This section defines the code standards that I have attempted to adhere to on this project</p>
         <article>
-            <h1>Code Standards - Javascript</h1>
-            <p>This section defines the code standards that I have attempted to adhere to on this project</p
             <h2>Object Definitions</h2>
             <p>If an object is static, i.e. it does not need instantiating before use, then the following pattern is used:</p>
             <pre>
@@ -64,12 +64,16 @@
             </pre>
             <p>Public methods defined inside the object are instantiated along with each object, prototype attached methods are not instantiated with the object, only a reference to them is created. This creates less browser overhead.
             </p>
+        </article>
+        <article>
             <h2>Semi-colons</h2>
             <p>Always use a semi-colon at the end of a line, this makes it easier to read as it shows that a line has intentionally been ended rather than accidentally being ended.</p>
         </article>
-<article>
-            <h1>Code Standards - HTML</h1>
-            <p>This section defines the HTML code standards that I have attempted to adhere to on this project</p
+    </section>
+    <section>
+        <h1>Code Standards - HTML</h1>
+        <p>This section defines the HTML code standards that I have attempted to adhere to on this project</p
+        <article>
             <h2>Case</h2>
             <p>I use lower case for tags and lower case for attributes
             <pre>
@@ -79,22 +83,15 @@
             </pre>
             </p>
             <p>Attribute are always double quoted in raw HTML code, in server side code (PHP) or client side scripting (JavaScript) languages feel free to not use quotes in order to reduce excessive escape characters</p>
-            <p>The alt attribute is always included, if the image is decorative use "*" rather than "", again it is a reminder to deliberately make them decorative rather than accidentally leaving them out.</p>
+        </article>
+        <article>
+            <h2>Images</h2>
+            <p>The alt attribute for images is always included, if the image is decorative use "*" rather than "".</p>
+            <p>Images should have their width and height supplied wherever possible so that the browser display does not need redrawing after images laod</p>
+            <h2>General</h2>
+            <p>The following are some general things that don't fir specifically any where else</p>
             <p>Never use a &lt;br /&gt; to create vertical space, vertical space is presentational and goes in the CSS.</p>
             <p>Never use &amp;nbsp; to create horizontal space, horizontal space is presentational and goes in the CSS.</p>
-            <pre>
-                <code>
-
-                </code>
-            </pre>
-            
-            <pre>
-                <code>
-
-                </code>
-            </pre>
-            <p>Public methods defined inside the object are instantiated along with each object, prototype attached methods are not instantiated with the object, only a reference to them is created. This creates less browser overhead.
-            </p>
             <h2>Self Closing Tags</h2>
             <p>Always use a self closing verison of a tag if it is avaiable.</p>
         </article>

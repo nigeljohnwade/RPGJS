@@ -51,6 +51,10 @@ var badGuy = new nonPlayerCharacter(
     parseInt((Math.random()*3)+1),
     parseInt((Math.random()*3)+1),
     'Random Bad Dude');
+badGuy.inventory.addItem(4, 'Weapons');
+badGuy.inventory.addItem(3, 'Armors');
+badGuy.setWeapon(4);
+badGuy.setArmor(3);
 var output = new rpgConsole('log');
 var turnTimer = new timer(60000,1000,"alert('Timed Out!')");
 turnTimer.startTimer();
