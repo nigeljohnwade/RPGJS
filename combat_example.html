@@ -39,6 +39,9 @@
 function backToMap(){
     window.location = 'index.html';
 }
+var npc = {
+    'level': 2
+}
 //set up objects
 var frodo = new playerCharacter(3,3,3,3, 'Frodude');
 frodo.inventory.addItem(4, 'Weapons');
@@ -46,10 +49,10 @@ frodo.inventory.addItem(3, 'Armors');
 frodo.setWeapon(4);
 frodo.setArmor(3);
 var badGuy = new nonPlayerCharacter(
-    parseInt((Math.random()*3)+1),
-    parseInt((Math.random()*3)+1),
-    parseInt((Math.random()*3)+1),
-    parseInt((Math.random()*3)+1),
+    parseInt((Math.random()*3) + npc.level),
+    parseInt((Math.random()*3) + npc.level),
+    parseInt((Math.random()*3) + npc.level),
+    parseInt((Math.random()*3) + npc.level),
     'Random Bad Dude');
 badGuy.inventory.addItem(4, 'Weapons');
 badGuy.inventory.addItem(3, 'Armors');

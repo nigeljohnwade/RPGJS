@@ -7,9 +7,9 @@ var Armors = {
         {"armorDamageModifier": 1.4, "armorName": "Rigid Linen"}
         ]
     ,getArmorDamageModifier: function(armorID){
-    return this.armors[armorID].armorDamageModifier;
+        return this.armors[armorID].armorDamageModifier;
     }
     ,getArmorName: function(armorID){
-    return this.armors[armorID].armorName;
+        return this.armors[armorID].armorName;
     }
 }

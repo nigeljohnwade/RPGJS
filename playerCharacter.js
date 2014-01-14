@@ -1,5 +1,8 @@
 function playerCharacter(m,r,s,t,n){
     //stats
+    //Test for watch
+    //Test again
+    //And again
     this.stats = [];
     this.stats.melee = m;
     this.stats.ranged = r;

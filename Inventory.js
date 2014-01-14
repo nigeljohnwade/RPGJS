@@ -12,8 +12,8 @@ function Inventory(){
     
 }
 
-Inventory.prototype.getItem = function(id){
-    return this.id
+Inventory.prototype.getItem = function(id,itemType){
+    return this[itemType].id
     }
     
 Inventory.prototype.getItemCount = function(){
