@@ -8,7 +8,7 @@ timer = function(timeOut,step,callback){
     this.callback = callback || null;
     this.identifier = null;
 
-    }
+};
 
 timer.prototype.updateTimer = function(){
     this.elapsed = (new Date().getTime()) - this.t;
@@ -16,24 +16,24 @@ timer.prototype.updateTimer = function(){
         this.elapsed = null;
         clearInterval(this.identifier);
         this.timedOut();
-        }
     }
+};
 
 timer.prototype.timedOut = function(){
     this.t = null;
     if(this.callback !== null){
-        eval(this.callback);
-        }
+        this.callback.call(this);
     }
+};
 
 timer.prototype.startTimer = function(){
     this.t = new Date().getTime();
     this.identifier = setInterval(timer.prototype.updateTimer,this.step);
-    }
+};
     
 timer.prototype.getTimerElapsed = function(){
     return this.elapsed;
-    }
+};
     
 timer.prototype.getTimeString = function(){
     this.elapsed = new Date(new Date().getTime() - this.t);
@@ -41,5 +41,5 @@ timer.prototype.getTimeString = function(){
     //use padding or some better js?
     this.timeString +=  (this.elapsed.getSeconds() < 10) ? '0' + this.elapsed.getSeconds() : this.elapsed.getSeconds();
     return this.timeString;
-    }
+};
     

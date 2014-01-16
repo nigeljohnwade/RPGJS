@@ -12,4 +12,4 @@ var Armors = {
     ,getArmorName: function(armorID){
         return this.armors[armorID].armorName;
     }
-}
+};

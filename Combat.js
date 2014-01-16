@@ -26,10 +26,10 @@ var Combat = {
             return {
                 'damage': damage,
                 'message':instigator.getWeapon() + ' to attack and inflicts ' + damage
-                }
+                };
         }else{
             //If not the correct weapon return a message
-            return{'message': instigator.name + ' is not using a melee weapon'}
+            return{'message': instigator.name + ' is not using a melee weapon'};
         }
     }
     ,basicRangedAttack: function(instigator){
@@ -46,9 +46,9 @@ var Combat = {
             return {
                 'damage': damage,
                 'message':instigator.getWeapon() + ' to attack and inflicts ' + damage
-            }
+            };
         }else{
-            return{'message': instigator.name + ' is not using a ranged weapon'}
+            return{'message': instigator.name + ' is not using a ranged weapon'};
         }
     }
     ,inflictDamage: function(hits, damage){
@@ -63,7 +63,7 @@ var Combat = {
         return {
                 'damage': _damageInflicted,
                 'message': hl + ' hits for ' + _damageInflicted + ' damage'
-                }
+                };
         }
     ,receiveDamage: function(retaliator,damage){
         damage = damage - retaliator.getResilience();
@@ -72,6 +72,6 @@ var Combat = {
         return {
             'wounds': wounds,
             'message': retaliator.name + ' receives ' + wounds + ' wounds'
-            }
+            };
         }
-    }
+    };

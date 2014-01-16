@@ -1,6 +1,6 @@
-function Weapons(){
+var Weapons = {
     
-    this.weapons = [
+    weapons: [
         {"weaponDamageModifier": 1, "weaponName": "Bare Hands", "weaponStyle": "melee"},
         {"weaponDamageModifier": 1.2, "weaponName": "Cheap One Handed Blade", "weaponStyle": "melee"},
         {"weaponDamageModifier": 1.2, "weaponName": "Cheap One Handed Axe", "weaponStyle": "melee"},
@@ -11,20 +11,15 @@ function Weapons(){
         {"weaponDamageModifier": 1.3, "weaponName": "Cheap Crossbow", "weaponStyle": "ranged"},
         {"weaponDamageModifier": 1.4, "weaponName": "Sturdy Longbow", "weaponStyle": "ranged"},
         {"weaponDamageModifier": 1.5, "weaponName": "Fine Recurve Composite Bow", "weaponStyle": "ranged"}
-        ]
-
-    this.getWeaponDamageModifier = function(weaponID){
+        ],
+    getWeaponDamageModifier: function(weaponID){
         return this.weapons[weaponID].weaponDamageModifier;
-        }
-
-    this.getWeaponName = function(weaponID){
+    },
+    getWeaponName: function(weaponID){
         return this.weapons[weaponID].weaponName;
-        }
-
-    this.getWeaponType = function(weaponID){
+    },
+    getWeaponType: function(weaponID){
         return this.weapons[weaponID].weaponStyle;
-        }
-
     }
-    
-Weapons = new Weapons();
+
+};

@@ -12,7 +12,7 @@ var Armors = {
     ,getArmorName: function(armorID){
         return this.armors[armorID].armorName;
     }
-}
+};
 var Combat = {
 
     basicMeleeAttack: function(instigator){
@@ -41,10 +41,10 @@ var Combat = {
             return {
                 'damage': damage,
                 'message':instigator.getWeapon() + ' to attack and inflicts ' + damage
-                }
+                };
         }else{
             //If not the correct weapon return a message
-            return{'message': instigator.name + ' is not using a melee weapon'}
+            return{'message': instigator.name + ' is not using a melee weapon'};
         }
     }
     ,basicRangedAttack: function(instigator){
@@ -61,9 +61,9 @@ var Combat = {
             return {
                 'damage': damage,
                 'message':instigator.getWeapon() + ' to attack and inflicts ' + damage
-            }
+            };
         }else{
-            return{'message': instigator.name + ' is not using a ranged weapon'}
+            return{'message': instigator.name + ' is not using a ranged weapon'};
         }
     }
     ,inflictDamage: function(hits, damage){
@@ -78,7 +78,7 @@ var Combat = {
         return {
                 'damage': _damageInflicted,
                 'message': hl + ' hits for ' + _damageInflicted + ' damage'
-                }
+                };
         }
     ,receiveDamage: function(retaliator,damage){
         damage = damage - retaliator.getResilience();
@@ -87,9 +87,9 @@ var Combat = {
         return {
             'wounds': wounds,
             'message': retaliator.name + ' receives ' + wounds + ' wounds'
-            }
+            };
         }
-    }
+    };
 
 function Inventory(){
     
@@ -106,51 +106,21 @@ function Inventory(){
 }
 
 Inventory.prototype.getItem = function(id,itemType){
-    return this[itemType].id
-    }
+    return this[itemType].id;
+};
     
 Inventory.prototype.getItemCount = function(){
-    return this.itemCount
-    }
+    return this.itemCount;
+};
 
 Inventory.prototype.addItem = function(item,itemType){
     this.itemCount = this.items[itemType].unshift(item);
-    }
+};
 
 Inventory.prototype.removeItem = function(item,itemType){
     this[itemType].splice(id,1);
     this.itemCount -= 1;
-    }
-function Weapons(){
-    
-    this.weapons = [
-        {"weaponDamageModifier": 1, "weaponName": "Bare Hands", "weaponStyle": "melee"},
-        {"weaponDamageModifier": 1.2, "weaponName": "Cheap One Handed Blade", "weaponStyle": "melee"},
-        {"weaponDamageModifier": 1.2, "weaponName": "Cheap One Handed Axe", "weaponStyle": "melee"},
-        {"weaponDamageModifier": 1.4, "weaponName": "One Handed Blade", "weaponStyle": "melee"},
-        {"weaponDamageModifier": 1.4, "weaponName": "One Handed Axe", "weaponStyle": "melee"},
-        {"weaponDamageModifier": 1, "weaponName": "Improvised Thrown Missiles", "weaponStyle": "ranged"},
-        {"weaponDamageModifier": 1.2, "weaponName": "Cheap Shortbow", "weaponStyle": "ranged"},
-        {"weaponDamageModifier": 1.3, "weaponName": "Cheap Crossbow", "weaponStyle": "ranged"},
-        {"weaponDamageModifier": 1.4, "weaponName": "Sturdy Longbow", "weaponStyle": "ranged"},
-        {"weaponDamageModifier": 1.5, "weaponName": "Fine Recurve Composite Bow", "weaponStyle": "ranged"}
-        ]
-
-    this.getWeaponDamageModifier = function(weaponID){
-        return this.weapons[weaponID].weaponDamageModifier;
-        }
-
-    this.getWeaponName = function(weaponID){
-        return this.weapons[weaponID].weaponName;
-        }
-
-    this.getWeaponType = function(weaponID){
-        return this.weapons[weaponID].weaponStyle;
-        }
-
-    }
-    
-Weapons = new Weapons();
+};
 function nonPlayerCharacter(m,r,s,t,n){
     //stats
     this.stats = [];
@@ -178,103 +148,103 @@ function nonPlayerCharacter(m,r,s,t,n){
 
 nonPlayerCharacter.prototype.getMelee = function(){
     return this.stats.melee;
-    }
+    };
 
 nonPlayerCharacter.prototype.getRanged = function(){
     return this.stats.ranged;
-    }
+    };
 
 nonPlayerCharacter.prototype.getSpecial = function(){
     return this.stats.special;
-    }
+    };
 
 nonPlayerCharacter.prototype.getToughness = function(){
     return this.stats.toughness;
-    }
+    };
     
 nonPlayerCharacter.prototype.getDamage = function(){
     return (this.getMelee() * this.damage);
-    }
+    };
     
 nonPlayerCharacter.prototype.getStatus = function(){
     return {
         'status':this.status,
         'message': this.name + ' is ' + this.status
-        }
-    }
+        };
+};
         
 nonPlayerCharacter.prototype.getResilience = function(){
     return (this.defence * this.stats.toughness);
-    }
+};
 
 nonPlayerCharacter.prototype.getHealth = function(){
     return ('Health is ' + parseInt(Math.max(0,this.wounds - this.woundsInflicted)) + '/' + this.wounds);
-    }
+};
 
 nonPlayerCharacter.prototype.amendStat = function(stat,value){
     this.stats[stat]  = this.stats[stat] + value;
     this.updateStatus();
-    }
+};
 
 nonPlayerCharacter.prototype.setStat = function(stat,value){
     this.stats[stat]  = value;
-    }
+};
     
 nonPlayerCharacter.prototype.amendProperty = function(stat,value){
     this[stat]  = this[stat] + value;
     this.updateStatus();
-    }
+};
 
 nonPlayerCharacter.prototype.setProperty = function(stat,value){
     this[stat]  = value;
-    }
+};
     
 nonPlayerCharacter.prototype.updateStatus = function(){
     if(this.woundsInflicted > this.wounds){
         return this.die();
-        }else if(this.woundsInflicted > 0){
+    }else if(this.woundsInflicted > 0){
         return this.injured();
-        }else{
+    }else{
         return '';
-        }
     }
+};
 
 nonPlayerCharacter.prototype.die = function(){
     this.status = 'dead';
     this.hideCard('opponent');
     return this.name + ' is dead';
-    }
+};
     
 nonPlayerCharacter.prototype.injured = function(){
     this.status = 'injured';
     return this.name + ' is injured';
-    }
+};
 
 nonPlayerCharacter.prototype.getWeapon = function(){
-    return this.name + ' is using ' + Weapons.getWeaponName(this.weaponID);
-    }
+    return this.name + ' is using ' + weapons.getWeaponName(this.weaponID);
+};
     
 nonPlayerCharacter.prototype.setWeapon = function(weaponID){
     this.weaponID = weaponID;
-    this.damage = this.damage * Weapons.getWeaponDamageModifier(weaponID);
-    return this.name + ' switches to ' + Weapons.getWeaponName(this.weaponID);
-    }
+    this.damage = this.damage * weapons.getWeaponDamageModifier(weaponID);
+    return this.name + ' switches to ' + weapons.getWeaponName(this.weaponID);
+};
 
 nonPlayerCharacter.prototype.getArmor = function(){
     return this.name + ' is wearing ' + Armors.getArmorName(this.armorID);
-    }
+};
     
 nonPlayerCharacter.prototype.setArmor = function(armorID){
     this.armorID = armorID;
     this.defence = this.defence * Armors.getArmorDamageModifier(armorID);
     return this.name + ' changes into ' + Armors.getArmorName(this.armorID);
-    }
+};
 
 nonPlayerCharacter.prototype.showCard = function(id){
     var div = document.getElementById(id);
     var html = '';
     html += '<h1 class="nonPlayerCharacter">' + this.name + '</h1>';
-    for(x in this.stats){
+    for(var x in this.stats){
         html += '<p class="stat">' + x + ': <span class="value"> ' + this.stats[x] + '</span></p>';
     }
     html += '<p>' + this.getWeapon() + '</p>';
@@ -282,7 +252,7 @@ nonPlayerCharacter.prototype.showCard = function(id){
     html += '<p>' + this.getHealth() + '</p>';
     html += '<p>' + this.getStatus().message + '</p>';
     div.innerHTML = html;
-}
+};
 
 nonPlayerCharacter.prototype.hideCard = function(id){
     var div = document.getElementById(id);
@@ -291,7 +261,7 @@ nonPlayerCharacter.prototype.hideCard = function(id){
     var button = document.getElementById('basicMeleeAttack_badGuy');
     button.innerText = 'Back to map';
     button.onclick = backToMap;
-}
+};
 
 function playerCharacter(m,r,s,t,n){
     //stats
@@ -323,58 +293,58 @@ function playerCharacter(m,r,s,t,n){
 
 playerCharacter.prototype.getMelee = function(){
     return this.stats.melee;
-    }
+    };
 
 playerCharacter.prototype.getRanged = function(){
     return this.stats.ranged;
-    }
+    };
 
 playerCharacter.prototype.getSpecial = function(){
     return this.stats.special;
-    }
+    };
 
 playerCharacter.prototype.getToughness = function(){
     return this.stats.toughness;
-    }
+    };
     
 playerCharacter.prototype.getDamage = function(){
     return (this.getMelee() * this.damage);
-    }
+    };
     
 playerCharacter.prototype.getStatus = function(){
     return {
         'status':this.status,
         'message': this.name + ' is ' + this.status
-        }
-    }
+        };
+    };
         
 playerCharacter.prototype.getResilience = function(){
     return (this.defence * this.stats.toughness);
-    }
+    };
 
 playerCharacter.prototype.getHealth = function(){
     return ('Health is ' + parseInt(Math.max(0,this.wounds - this.woundsInflicted)) + '/' + this.wounds);
-    }
+    };
 
 playerCharacter.prototype.amendStat = function(stat,value){
     //Amend a the specified stat by thegiven value
     this.stats[stat]  = this.stats[stat] + value;
     this.updateStatus();
-    }
+    };
 
 playerCharacter.prototype.setStat = function(stat,value){
     //Set a given stat to a specified value
     this.stats[stat]  = value;
-    }
+    };
     
 playerCharacter.prototype.amendProperty = function(stat,value){
     this[stat]  = this[stat] + value;
     this.updateStatus();
-    }
+    };
 
 playerCharacter.prototype.setProperty = function(stat,value){
     this[stat]  = value;
-    }
+    };
     
 playerCharacter.prototype.updateStatus = function(){
     if(this.woundsInflicted > this.wounds){
@@ -384,57 +354,57 @@ playerCharacter.prototype.updateStatus = function(){
         }else{
         return '';
         }
-    }
+    };
 
 playerCharacter.prototype.die = function(){
     this.status = 'dead';
     return this.name + ' is dead';
-    }
+    };
     
 playerCharacter.prototype.injured = function(){
     this.status = 'injured';
     return this.name + ' is injured';
-    }
+    };
 
 playerCharacter.prototype.getWeapon = function(){
-    return this.name + ' is using ' + Weapons.getWeaponName(this.weaponID);
-    }
+    return this.name + ' is using ' + weapons.getWeaponName(this.weaponID);
+    };
     
 playerCharacter.prototype.setWeapon = function(weaponID){
-    for(var i = 0; i < this.inventory.items['Weapons'].length; i++){
-        if(this.inventory.items['Weapons'][i] === weaponID){
+    for(var i = 0; i < this.inventory.items.Weapons.length; i++){
+        if(this.inventory.items.Weapons[i] === weaponID){
             this.weaponID = weaponID;
-            this.damage = this.damage * Weapons.getWeaponDamageModifier(weaponID);
-            return this.name + ' switches to ' + Weapons.getWeaponName(this.weaponID);
-            }
+            this.damage = this.damage * weapons.getWeaponDamageModifier(weaponID);
+            return this.name + ' switches to ' + weapons.getWeaponName(this.weaponID);
         }
     }
+};
 
 playerCharacter.prototype.getAttackType = function(){
-    return Weapons.getWeaponType(this.weaponID);
-    }
+    return weapons.getWeaponType(this.weaponID);
+};
 
 playerCharacter.prototype.getArmor = function(){
     return this.name + ' is wearing ' + Armors.getArmorName(this.armorID);
-    }
+};
     
 playerCharacter.prototype.setArmor = function(armorID){
-    for(var i = 0; i < this.inventory.items['Armors'].length; i++){
-        if(this.inventory.items['Armors'][i] = armorID){ 
+    for(var i = 0; i < this.inventory.items.Armors.length; i++){
+        if(this.inventory.items.Armors[i] === armorID){ 
             this.armorID = armorID;
             this.defence = this.defence * Armors.getArmorDamageModifier(armorID);
             return this.name + ' changes into ' + Armors.getArmorName(this.armorID);
-            }else{
+        }else{
                 return false;
-            }
         }
     }
+};
 
 playerCharacter.prototype.showCard = function(id){
     div = document.getElementById(id);
     html = '';
     html += '<h1 class="playerCharacter">' + this.name + '</h1>';
-    for(x in this.stats){
+    for(var x in this.stats){
         html += '<p class="stat">' + x + ': <span class="value"> ' + this.stats[x] + '</span></p>';
     }
     html += '<p>' + this.getWeapon() + '</p>';
@@ -442,7 +412,7 @@ playerCharacter.prototype.showCard = function(id){
     html += '<p>' + this.getHealth() + '</p>';
     html += '<p>' + this.getStatus().message + '</p>';
     div.innerHTML = html;
-}
+};
 
 function rpgConsole(id){
 
@@ -456,12 +426,57 @@ function rpgConsole(id){
 rpgConsole.prototype.log = function(theClass,theString){
     this.writeCount = this.content.unshift({"theClass": theClass, "theText": theString});
     var outputTemplate = '<p class="{theClass}">{theText}</p>';
-    for(a in this.content[0]){
+    for(var a in this.content[0]){
         outputTemplate = outputTemplate.replace('{' + a + '}',this.content[0][a]);
         }
     this.output = outputTemplate + this.output;
-    }
+    };
 
 rpgConsole.prototype.display = function(){
     document.getElementById(this.id).innerHTML = this.output;
+    };
+timer = function(timeOut,step,callback){
+    
+    this.t = 0;
+    this.elapsed = 0;
+    this.timeString = '';
+    this.timeOut = timeOut || 0;
+    this.step = step || 1000;
+    this.callback = callback || null;
+    this.identifier = null;
+
+};
+
+timer.prototype.updateTimer = function(){
+    this.elapsed = (new Date().getTime()) - this.t;
+    if(this.elapsed > this.timeOut){
+        this.elapsed = null;
+        clearInterval(this.identifier);
+        this.timedOut();
     }
+};
+
+timer.prototype.timedOut = function(){
+    this.t = null;
+    if(this.callback !== null){
+        this.callback.call(this);
+    }
+};
+
+timer.prototype.startTimer = function(){
+    this.t = new Date().getTime();
+    this.identifier = setInterval(timer.prototype.updateTimer,this.step);
+};
+    
+timer.prototype.getTimerElapsed = function(){
+    return this.elapsed;
+};
+    
+timer.prototype.getTimeString = function(){
+    this.elapsed = new Date(new Date().getTime() - this.t);
+    this.timeString = (this.elapsed.getMinutes() > 0) ? this.elapsed.getMinutes() + ':' : '00:';
+    //use padding or some better js?
+    this.timeString +=  (this.elapsed.getSeconds() < 10) ? '0' + this.elapsed.getSeconds() : this.elapsed.getSeconds();
+    return this.timeString;
+};
+    

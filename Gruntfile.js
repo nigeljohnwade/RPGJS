@@ -8,11 +8,11 @@ module.exports = function(grunt){
                     'Armor.js',
                     'Combat.js',
                     'Inventory.js',
-                    'Weapons.js',
+                    'Weapodns.js',
                     'nonPlayerCharacter.js',
                     'playerCharacter.js',
                     'rpgConsole.js',
-                    'time.js'
+                    'timer.js'
                     ],
                 dest: 'build/production.js'
             }
@@ -21,6 +21,22 @@ module.exports = function(grunt){
             build:{
                 src: 'build/production.js',
                 dest: 'build/production.min.js'
+            }
+        },
+        jshint:{
+            src: ['Armor.js',
+                    'Combat.js',
+                    'Inventory.js',
+                    'Weapons.js',
+                    'nonPlayerCharacter.js',
+                    'playerCharacter.js',
+                    'rpgConsole.js',
+                    'timer.js'
+                    ],
+            options: {
+                laxcomma: true,
+                reporter: 'jslint',
+                reporterOutput: 'jshint.xml'
             }
         },
         watch: {
@@ -36,7 +52,7 @@ module.exports = function(grunt){
                     'nonPlayerCharacter.js',
                     'playerCharacter.js',
                     'rpgConsole.js',
-                    'time.js'
+                    'timer.js'
                     ],
                 tasks: ['concat', 'uglify'],
                 options: {
@@ -54,16 +70,20 @@ module.exports = function(grunt){
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'images/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'images/build/'
-                }]
+                    //cwd: '/images/',
+                    src: 'docs/images/*.{png,jpg,gif}',
+                    dest: 'build/test/'
+                }],
+                options:{
+                    optimizationLevel: 0
+                }
             }
-        }
+        },
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
 }
