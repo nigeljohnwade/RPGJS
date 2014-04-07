@@ -125,7 +125,7 @@ playerCharacter.prototype.getArmor = function(){
     
 playerCharacter.prototype.setArmor = function(armorID){
     for(var i = 0; i < this.inventory.items.Armors.length; i++){
-        if(this.inventory.items.Armors[i] === armorID){ 
+        if(this.inventory.items.Armors[i] == armorID){ 
             this.armorID = armorID;
             this.defence = this.defence * Armors.getArmorDamageModifier(armorID);
             return this.name + ' changes into ' + Armors.getArmorName(this.armorID);
