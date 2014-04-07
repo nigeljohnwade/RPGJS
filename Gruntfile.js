@@ -35,6 +35,12 @@ module.exports = function(grunt){
                     ],
             options: {
                 laxcomma: true,
+                eqeqeq: true,
+                curly: true,
+                //forin: true,
+                freeze: true,
+                //indent: 4,
+                //nonbsp: true, 
                 reporter: 'jslint',
                 reporterOutput: 'jshint.xml'
             }
@@ -71,19 +77,26 @@ module.exports = function(grunt){
                 files: [{
                     expand: true,
                     //cwd: '/images/',
-                    src: 'docs/images/*.{png,jpg,gif}',
+                    src: 'images/*.{png,jpg,gif}',
                     dest: 'build/test/'
                 }],
                 options:{
-                    optimizationLevel: 0
+                    optimizationLevel: 0,
+                    cache: false
                 }
             }
         },
+        githooks:{
+            all:{
+                'pre-commit': 'jshint'
+            }
+        }
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-githooks');
     grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
 }
