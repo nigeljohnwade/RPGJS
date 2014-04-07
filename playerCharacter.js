@@ -107,7 +107,7 @@ playerCharacter.prototype.getWeapon = function(){
     
 playerCharacter.prototype.setWeapon = function(weaponID){
     for(var i = 0; i < this.inventory.items.Weapons.length; i++){
-        if(this.inventory.items.Weapons[i] === weaponID){
+        if(this.inventory.items.Weapons[i] == weaponID){
             this.weaponID = weaponID;
             this.damage = this.damage * Weapons.getWeaponDamageModifier(weaponID);
             return this.name + ' switches to ' + Weapons.getWeaponName(this.weaponID);
