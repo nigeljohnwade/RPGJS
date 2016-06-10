@@ -1,1 +1,0 @@
-Javascript role playing engine with geolocation
